@@ -6,18 +6,18 @@
     <title>El sitio más Seguro del Mundo</title>
     <link rel="stylesheet" href="styles.css"> <!-- Conexión al archivo CSS -->
     <script>
-    // Configura CountAPI
-    const namespace = 'el-sitio-mas-seguro';
-    const key = 'visit_count';
-
-    // Llamada a la API para obtener y actualizar el contador de visitas
-    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-        .then(response => response.json())
-        .then(data => {
-            // Inserta el conteo de visitas en el lugar adecuado
-            document.querySelector('.negrita').innerHTML = `Hemos realizado ${data.value} ataques con éxito`;
-        })
-        .catch(error => console.error('Error al obtener el conteo de visitas:', error));
+        // Configura CountAPI
+        const namespace = 'el-sitio-mas-seguro';
+        const key = 'visit_count';
+    
+        // Llamada a la API para obtener y actualizar el contador de visitas
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+            .then(response => response.json())
+            .then(data => {
+                // Inserta el conteo de visitas en el lugar adecuado
+                document.querySelector('.negrita').innerHTML = `Hemos realizado ${data.value} ataques con éxito`;
+            })
+            .catch(error => console.error('Error al obtener el conteo de visitas:', error));
     </script>
 </head>
 <body>
