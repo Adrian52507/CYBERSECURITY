@@ -6,26 +6,18 @@
     <title>El sitio más Seguro del Mundo</title>
     <link rel="stylesheet" href="styles.css"> <!-- Conexión al archivo CSS -->
     <script>
-        // Configura CountAPI
-        const namespace = 'el-sitio-mas-seguro';
-        const key = 'visit_count';
-    
-        // Llamada a la API para obtener y actualizar el contador de visitas
-        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-            .then(response => response.json())
-            .then(data => {
-                // Inserta el conteo de visitas en el lugar adecuado
-                document.querySelector('.negrita').innerHTML = `Hemos realizado ${data.value} ataques con éxito`;
-            })
-            .catch(error => console.error('Error al obtener el conteo de visitas:', error));
+    function cb(response) {
+        document.getElementById('visits').innerText = response.value;
+    }
     </script>
+    <script async src="https://api.countapi.xyz/hit/adrian52507.github.ioCYBERSECURITY/visits?callback=cb"></script>
 </head>
 <body>
     <section class="mensaje diablo">
     <h1 class="titulo">¡ESTÁS SIENDO ATACADO!</h1><br>
     <p class="candado">&#x1F512;</p>
     <p class="negrita">&#x1F608;&#128128; Tenemos tu información con nosostros &#128128;&#x1F608;</p><br>
-    <p class="negrita">Hemos realizado <span id="visit-count"></span> ataques con éxito</p>
+    <p class="negrita">Hemos realizado <span id="visits"></span> ataques con éxito</p>
     </section>
     
 </body>
