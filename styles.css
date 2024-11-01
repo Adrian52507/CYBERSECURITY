@@ -1,0 +1,69 @@
+/* styles.css */
+html, body {
+    overflow: hidden; /* Esto eliminará el scroll */
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #780000;
+    color: black;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura completa de la ventana */
+    text-align: center; /* Centrar el texto */
+}
+
+h1 {
+    color: black;
+    margin-bottom: 0px;
+}
+
+.titulo {
+    font-size: 50px;
+}
+
+#visitCount {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.candado {
+    font-size: 5rem;
+}
+
+.negrita {
+    font-weight: bold;
+    font-size: 1rem;
+}
+/* styles.css */
+.diablo {
+    animation: parpadeo 1s infinite, movimiento 1s infinite; /* 1 segundo por ciclo, infinito */
+}
+
+@keyframes parpadeo {
+    0%, 100% {
+        opacity: 1; /* Visible */
+    }
+    50% {
+        opacity: 0; /* Invisible */
+    }
+}
+@keyframes movimiento {
+    0% {
+        transform: translate(0, 0); /* Posición inicial */
+    }
+    25% {
+        transform: translate(-5px, -5px); /* Moverse un poco hacia arriba a la izquierda */
+    }
+    50% {
+        transform: translate(5px, -5px); /* Moverse un poco hacia arriba a la derecha */
+    }
+    75% {
+        transform: translate(-5px, 5px); /* Moverse un poco hacia abajo a la izquierda */
+    }
+    100% {
+        transform: translate(0, 0); /* Regresar a la posición inicial */
+    }
+}
