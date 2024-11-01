@@ -5,14 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El sitio más Seguro del Mundo</title>
     <link rel="stylesheet" href="styles.css"> <!-- Conexión al archivo CSS -->
-    <script>
-        fetch("https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxgwSCIlEwfXoOakdkdQ7dhWp9bj6Hvpb3Y9ylBF6hxBEjnr0vC-Gh2A2FImV-l4Hl_/exec")
-            .then(response => response.text())
-            .then(count => {
-                document.querySelector('#visits').textContent = count;
-            })
-            .catch(error => console.error('Error al obtener el conteo de visitas:', error));
-    </script>
+<script>
+    // Configura tu clave API y el ID del Bin
+    const API_KEY = "$2a$10$IwUHG0ehxZnV7RqWdegRxuydsIOBF2ERSytjnnlaisWe76I0NJjve";  // Reemplaza con tu clave de JSONBin
+    const BIN_ID = "6725440fe41b4d34e44ca2b3";  // Reemplaza con el ID de tu Bin
+
+    // Función para obtener y actualizar el contador de visitas
+    async function updateVisitCount() {
+        try {
+            // Obtener el contador actual
+            let response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                method: "GET",
+                headers: {
+                    "X-Master-Key": API_KEY
+                }
+            });
+            let data = await response.json();
+            let count = data.record.visit_count;
+
+            // Incrementar el contador
+            count++;
+
+            // Mostrar el nuevo valor en la página
+            document.querySelector('#visits').textContent = count;
+
+            // Actualizar el Bin con el nuevo contador
+            await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Master-Key": API_KEY
+                },
+                body: JSON.stringify({ visit_count: count })
+            });
+        } catch (error) {
+            console.error("Error al obtener o actualizar el contador de visitas:", error);
+        }
+    }
+
+    // Llama a la función al cargar la página
+    updateVisitCount();
+</script>
 </head>
 <body>
     <section class="mensaje diablo">
