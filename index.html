@@ -6,12 +6,12 @@
     <title>El sitio más Seguro del Mundo</title>
     <link rel="stylesheet" href="styles.css"> <!-- Conexión al archivo CSS -->
     <script>
-      fetch("https://script.google.com/macros/s/AKfycbxgwSCIlEwfXoOakdkdQ7dhWp9bj6Hvpb3Y9ylBF6hxBEjnr0vC-Gh2A2FImV-l4Hl_/exec")
-          .then(response => response.text())
-          .then(count => {
-              document.querySelector('#visits').textContent = count;
-          })
-          .catch(error => console.error('Error al obtener el conteo de visitas:', error));
+        fetch("https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxgwSCIlEwfXoOakdkdQ7dhWp9bj6Hvpb3Y9ylBF6hxBEjnr0vC-Gh2A2FImV-l4Hl_/exec")
+            .then(response => response.text())
+            .then(count => {
+                document.querySelector('#visits').textContent = count;
+            })
+            .catch(error => console.error('Error al obtener el conteo de visitas:', error));
     </script>
 </head>
 <body>
