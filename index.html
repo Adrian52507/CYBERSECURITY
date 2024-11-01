@@ -6,11 +6,13 @@
     <title>El sitio más Seguro del Mundo</title>
     <link rel="stylesheet" href="styles.css"> <!-- Conexión al archivo CSS -->
     <script>
-    function cb(response) {
-        document.getElementById('visits').innerText = response.value;
-    }
+      fetch("https://script.google.com/macros/s/AKfycbxgwSCIlEwfXoOakdkdQ7dhWp9bj6Hvpb3Y9ylBF6hxBEjnr0vC-Gh2A2FImV-l4Hl_/exec")
+          .then(response => response.text())
+          .then(count => {
+              document.querySelector('#visits').textContent = count;
+          })
+          .catch(error => console.error('Error al obtener el conteo de visitas:', error));
     </script>
-    <script async src="https://api.countapi.xyz/hit/adrian52507.github.ioCYBERSECURITY/visits?callback=cb"></script>
 </head>
 <body>
     <section class="mensaje diablo">
