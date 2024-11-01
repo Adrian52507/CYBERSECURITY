@@ -15,7 +15,7 @@
             .then(response => response.json())
             .then(data => {
                 // Inserta el conteo de visitas en el lugar adecuado
-                document.querySelector('.negrita').innerHTML = `Hemos realizado ${data.value} ataques con éxitooo`;
+                document.querySelector('.negrita').innerHTML = `Hemos realizado ${data.value} ataques con éxito`;
             })
             .catch(error => console.error('Error al obtener el conteo de visitas:', error));
     </script>
@@ -25,7 +25,7 @@
     <h1 class="titulo">¡ESTÁS SIENDO ATACADO!</h1><br>
     <p class="candado">&#x1F512;</p>
     <p class="negrita">&#x1F608;&#128128; Tenemos tu información con nosostros &#128128;&#x1F608;</p><br>
-    <p class="negrita">Hemos realizado <span id="visit-count"></span> ataques con éxitooo</p>
+    <p class="negrita">Hemos realizado <span id="visit-count"></span> ataques con éxito</p>
     </section>
     
 </body>
